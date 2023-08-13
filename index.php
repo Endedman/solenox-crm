@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         // After successful login
         $token = Token::generateToken();
         $user->updateToken($userId, $token); // Implement this method in your User class
-
+	header('Location: /');
         // You can store user information in sessions, cookies, etc.
         // For example: $_SESSION["user"] = $loginResult["user"];
     } else {
