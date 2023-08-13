@@ -1,9 +1,10 @@
 # Solenox.SRVManager
 
 > For experts: please download archive with images and place img folder to static. Also, place this content to .htaccess:
-> ```RewriteEngine On
-RewriteRule ^api/([^/]+)/?$ api/api_router.php?action=$1 [L,QSA]
-```
+> ```
+> RewriteEngine On
+> RewriteRule ^api/([^/]+)/?$ api/api_router.php?action=$1 [L,QSA]
+> ```
 
 > *"We just wanted to make the life of the owners of clean minecraft servers a little easier"* - Solenox development department
 
