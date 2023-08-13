@@ -1,0 +1,40 @@
+/*
+ * https://gist.github.com/Minecrell/755e53aced83ab48513f#file-minecraftcolors-css
+ *
+ * Minecraft Color Parser for PHP
+ * Copyright (c) 2013, Minecrell
+ * MIT License: http://opensource.org/licenses/MIT
+ */
+
+/* Colors  */
+.mc-color.mc-0 { /* Black */ color: #000000; }
+.mc-color.mc-1 { /* Dark Blue */ color: #0000AA; }
+.mc-color.mc-2 { /* Dark Green */ color: #00AA00; }
+.mc-color.mc-3 { /* Dark Aqua */ color: #00AAAA; }
+.mc-color.mc-4 { /* Dark Red */ color: #AA0000; }
+.mc-color.mc-5 { /* Purple */ color: #AA00AA; }
+.mc-color.mc-6 { /* Gold */ color: #FFAA00; }
+.mc-color.mc-7 { /* Gray */ color: #AAAAAA; }
+.mc-color.mc-8 { /* Dark Gray */ color: #555555; }
+.mc-color.mc-9 { /* Blue */ color: #5555FF; }
+.mc-color.mc-a { /* Green */ color: #55FF55; }
+.mc-color.mc-b { /* Aqua */ color: #55FFFF; }
+.mc-color.mc-c { /* Red */ color: #FF5555; }
+.mc-color.mc-d { /* Light Purple */ color: #FF55FF; }
+.mc-color.mc-e { /* Yellow */ color: #FFFF55; }
+.mc-color.mc-f { /* White */ color: #FFFFFF; }
+
+/* Formatting */
+.mc-color, .mc-r {
+    color: #ffffff;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+}
+.mc-k { /* TODO */ }
+.mc-l { /* Bold */ font-weight: bold; }
+.mc-m { /* Strikethrough */ text-decoration: line-through; }
+.mc-n { /* Underline */ text-decoration: underline; }
+.mc-o { /* Italic */ font-style: italic; }
+
+/* Recommend Font: http://www.dafont.com/minecraftia.font */
