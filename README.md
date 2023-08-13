@@ -72,7 +72,6 @@ $mail->addAddress(recipientEmail);
 $mail->isHTML(true);
 $mail->Subject = 'Email Verification';
 $mail->Body = "Please verify your email using this token: $verificationToken";
-</code>
 ```
 
 8. Now, you are ready to use SRVManager! Please be sure that all folders and files have right attributes.
