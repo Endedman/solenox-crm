@@ -9,14 +9,16 @@ Solenox.SRVManager can be used in small communities for contacting between serve
  - [x] File management system (raw implementation)
  - [x] Users' chat
  - [x] Ranking system depends on users activity (uploading files, writing news or simple chatting)
+ - [x] AJAX (fast content reloading)
 
 ### What is unimplemented now?
 So, we have have a lot of problem depending on User.php class (due to incident in code documentation with ChatGPT some class were silently broken at 2 days before deadline =)
 #### Now it is NOT implemented:
- - [] Manual user ranking system
- - [] Subcategories (it means category-in-category)
- - [] Full files' pages (Description, License, etc)
- - [] Themes (only 98.css applicable)
+ - [ ] Manual user ranking system
+ - [ ] Subcategories (it means category-in-category)
+ - [ ] Full files' pages (Description, License, etc)
+ - [ ] Themes (only 98.css and it's family applicable)
+ - [ ] Email verification (in future)
 
 ## Requirements
 Please carefully read this. All apps which not listed in this section is not supported. If you are experiencing issues, please chech `Issues` section - maybe problem is listed before.
