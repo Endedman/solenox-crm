@@ -76,3 +76,11 @@ $mail->Body = "Please verify your email using this token: $verificationToken";
 
 8. Now, you are ready to use SRVManager! Please be sure that all folders and files have right attributes.
 
+## For developers
+We have small API for contacting some DB fiels with no usage of Mysql protocol in computer programs.
+Endpoint:
+`yourdomain.com/api`
+`getToken` (GET, params: username, password, return: token)
+`getAllUsers` (POST, params: X-HTTP-API-TOKEN, returns: JSON Array)
+`getAllNews` (POST, params: X-HTTP-API-TOKEN, returns: JSON Array)
+`getAllMessages` (POST, params: X-HTTP-API-TOKEN, returns: JSON Array)
