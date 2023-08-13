@@ -1,5 +1,7 @@
 # Solenox.SRVManager
 
+> For experts: during login you can use this credentials: admin > end56905 (it has role 3 (max)) or tester > end56905 (role 1, which can be used for all actions). Role 0 used by other users, it can not be used for MC server management!
+
 > *"We just wanted to make the life of the owners of clean minecraft servers a little easier"* - Solenox development department
 
 ## What is a Solenox server manager?
