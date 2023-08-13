@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])) {
   <!-- the tab content -->
   <article role="tabpanel" id="UserControl">
   	<?php 
-  	$requiredRole = 3;
+  	$requiredRole = 0;
     if (!$user->userHasPermission($userId, $requiredRole)) {
         $permMessage = "You do not have permission to use this feature.";
     } else {
@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])) {
   </article>
 	<article role="tabpanel" hidden id="AddNews">
 	<?php
-	$requiredRole = 2;
+	$requiredRole = 0;
     if (!$user->userHasPermission($userId, $requiredRole)) {
         $permMessage = "You do not have permission to use this feature.";
     } else {
@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])) {
 
   <article role="tabpanel" hidden id="CreateCategory">
   	<?php
-  	$requiredRole = 2;
+  	$requiredRole = 0;
     if (!$user->userHasPermission($userId, $requiredRole)) {
         $permMessage = "You do not have permission to use this feature.";
     } else {
@@ -207,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])) {
   </article>
   <article role="tabpanel" hidden id="UploadFiles">
   	<?php
-  	$requiredRole = 2;
+  	$requiredRole = 0;
     if (!$user->userHasPermission($userId, $requiredRole)) {
         $permMessage = "You do not have permission to use this feature.";
     } else {
@@ -244,7 +244,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"])) {
   </article>
   <article role="tabpanel" hidden id="SRVManage">
   	<?php 
-  	$requiredRole = 3;
+  	$requiredRole = 1;
     if (!$user->userHasPermission($userId, $requiredRole)) {
         $permMessage = "You do not have permission to use this feature.";
     } else {
