@@ -4,19 +4,19 @@
 
 ## What is a Solenox server manager?
 Solenox.SRVManager can be used in small communities for contacting between server *owners* and *users*. Using SRVManager, you can implement:
-:white_check_mark: Users' registration
-:white_check_mark: News feed
-:white_check_mark: File management system (raw implementation)
-:white_check_mark: Users' chat
-:white_check_mark: Ranking system depends on users activity (uploading files, writing news or simple chatting)
+[x] Users' registration
+[x] News feed
+[x] File management system (raw implementation)
+[x] Users' chat
+[x] Ranking system depends on users activity (uploading files, writing news or simple chatting)
 
 ### What is unimplemented now?
 So, we have have a lot of problem depending on User.php class (due to incident in code documentation with ChatGPT some class were silently broken at 2 days before deadline =)
 #### Now it is NOT implemented:
-:x: Manual user ranking system
-:x: Subcategories (it means category-in-category)
-:x: Full files' pages (Description, License, etc)
-:x: Themes (only 98.css applicable)
+[] Manual user ranking system
+[] Subcategories (it means category-in-category)
+[] Full files' pages (Description, License, etc)
+[] Themes (only 98.css applicable)
 
 ## Requirements
 Please carefully read this. All apps which not listed in this section is not supported. If you are experiencing issues, please chech `Issues` section - maybe problem is listed before.
@@ -59,7 +59,7 @@ private $password = "PASS";
 private $database = "DATABASE";` to your values.
 In 
     `document_root/classes/User.php` edit these strings:
-<code>
+```
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
@@ -73,6 +73,7 @@ $mail->isHTML(true);
 $mail->Subject = 'Email Verification';
 $mail->Body = "Please verify your email using this token: $verificationToken";
 </code>
+```
 
-Now, you are ready to use SRVManager! Please be sure that all folders and files have right attributes.
+8. Now, you are ready to use SRVManager! Please be sure that all folders and files have right attributes.
 
