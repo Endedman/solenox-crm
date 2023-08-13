@@ -13,10 +13,10 @@ Solenox.SRVManager can be used in small communities for contacting between serve
 ### What is unimplemented now?
 So, we have have a lot of problem depending on User.php class (due to incident in code documentation with ChatGPT some class were silently broken at 2 days before deadline =)
 #### Now it is NOT implemented:
-- [] Manual user ranking system
-- [] Subcategories (it means category-in-category)
-- [] Full files' pages (Description, License, etc)
-- [] Themes (only 98.css applicable)
+ - [] Manual user ranking system
+ - [] Subcategories (it means category-in-category)
+ - [] Full files' pages (Description, License, etc)
+ - [] Themes (only 98.css applicable)
 
 ## Requirements
 Please carefully read this. All apps which not listed in this section is not supported. If you are experiencing issues, please chech `Issues` section - maybe problem is listed before.
