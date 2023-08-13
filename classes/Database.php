@@ -7,9 +7,9 @@
 class Database
 {
     private $host = "localhost";
-    private $username = "snowbear";
-    private $password = "end56905";
-    private $database = "snowbear_data";
+    private $username = "USER";
+    private $password = "PASS";
+    private $database = "DATABASE";
     protected $conn;
 
     /**
