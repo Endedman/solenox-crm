@@ -4,11 +4,11 @@
 
 ## What is a Solenox server manager?
 Solenox.SRVManager can be used in small communities for contacting between server *owners* and *users*. Using SRVManager, you can implement:
-- [x] Users' registration
-- [x] News feed
-- [x] File management system (raw implementation)
-- [x] Users' chat
-- [x] Ranking system depends on users activity (uploading files, writing news or simple chatting)
+ - [x] Users' registration
+ - [x] News feed
+ - [x] File management system (raw implementation)
+ - [x] Users' chat
+ - [x] Ranking system depends on users activity (uploading files, writing news or simple chatting)
 
 ### What is unimplemented now?
 So, we have have a lot of problem depending on User.php class (due to incident in code documentation with ChatGPT some class were silently broken at 2 days before deadline =)
