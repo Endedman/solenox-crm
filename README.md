@@ -27,7 +27,7 @@ So, we have have a lot of problem depending on User.php class (due to incident i
  - [ ] Email verification (in future)
 
 ## Requirements
-Please carefully read this. All apps which not listed in this section is not supported. If you are experiencing issues, please chech `Issues` section - maybe problem is listed before.
+Please carefully read this. All apps which not listed in this section are not supported. If you are experiencing issues, please chech `Issues` section - maybe problem is listed before.
 
 You need:
  - [X] Apache2 / nginx webserver
