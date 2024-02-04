@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["change_avatar"])) {
           $changeAvatarError = "Image size is larger than the allowable limit.";
         } else {
           // move the file to the specified location
-          $avatar_path = JSTORE_DIR . JSTORE_UPLOAD_AVATAR_PREFIX . md5($file_name);
+          $avatar_path = JSTORE_UPLOAD_DIR . JSTORE_UPLOAD_AVATAR_PREFIX . md5($file_name);
           $avatar_path_db = JSTORE_UPLOAD_AVATARDIR_PREFIX . md5($file_name);
 
           if (move_uploaded_file($file_temp, $avatar_path)) {
