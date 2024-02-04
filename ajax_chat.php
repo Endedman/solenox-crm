@@ -1,6 +1,8 @@
 <?php
-session_start();
-require_once "classes/Database.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "config.php";
+require_once JSTORE_DIR . "classes/Database.php";
+require_once JSTORE_DIR . "classes/Logger.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
     $userId = isset($_SESSION["user_id"]) ? intval($_SESSION["user_id"]) : 0;
@@ -24,6 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db = new Database();
     $conn = $db->getConnection();
 
+    $logger = new Logger($db);
+    $userIp = $_SERVER['REMOTE_ADDR'];
+    $userAction = "User loaded chat";
+    $logger->logActivity($userIp, $userAction);
     $stmt = $conn->prepare("SELECT cm.id, cm.message, u.username FROM chat_messages cm JOIN users u ON cm.user_id = u.id ORDER BY cm.timestamp DESC");
     $stmt->execute();
     $result = $stmt->get_result();
@@ -35,4 +41,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo json_encode($messages);
 }
-?>
