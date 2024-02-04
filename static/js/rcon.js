@@ -59,7 +59,7 @@ function logMsg(msg, sep, cls, imgSrc){
         ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
         var img = "";
         if (imgSrc) {
-          img = "<img src='http://snowbear-beta.j2me.xyz/static/img/png/" + imgSrc + "' class='message-icon'>";
+          img = "<img src='http://j2me.xyz/static/img/png/" + imgSrc + "' class='message-icon'>";
         }
 
         $("#groupConsole")
@@ -117,7 +117,7 @@ function sendCommand(command){
     return;
   }
   logMsg(command, ">", "success");
-  $.post("rcon/index.php", { cmd: command })
+  $.post("/admin/rcon/index.php", { cmd: command })
     .done(function(json){
       if(json.status){
         if(json.status == 'success' && json.response && json.command){
