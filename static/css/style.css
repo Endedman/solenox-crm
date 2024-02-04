@@ -4,6 +4,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	backdrop-filter: grayscale(1);
 	margin: 0;
 
 }
@@ -128,10 +129,12 @@ menu button {
 
  #modalwindow {
 	position: absolute;
+	top: 0;
+    left: 35vh;
 }
 .footer {
 	display: flex;
-	position: fixed;
+	position: sticky;
 	bottom: 0;
 	height: 30px;
 	width: 100%;
@@ -172,3 +175,219 @@ menu button {
 }
 .context-menu ul li:hover a{
 	color: white;
+}
+ul {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+.cats li {
+	width: 33%;
+}
+.avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-right: 10px;
+  }
+
+.profile {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #f9f9f9;
+  }
+  
+  .details {
+	font-weight: bold;
+	display: flex;
+  }
+  
+  .window-body {
+	/* Your existing styles for the window-body class */
+	/* Make sure this class is defined and styled properly */
+  }
+  menu, [role=tabpanel] {
+	z-index: 0;
+  }
+  .exclude-wb {
+	display: block;
+  }
+/* Стили для подсказок */
+.tab-tooltip {
+	display: none;
+	position: absolute;
+	/* bottom: 100%; */
+	left: 20%;
+	transform: translateX(-50%);
+	background-color: #ffffe1;
+	border: 1px solid #000;
+	padding: 5px;
+	font-family: 'MS Sans Serif', Geneva, sans-serif;
+	font-size: 12px;
+	color: #000;
+	white-space: nowrap;
+	z-index: 1;
+	pointer-events: none; /* Убирает взаимодействие с подсказкой */
+	z-index: 1000; /* Убеждаемся, что подсказка выше других элементов */
+  }
+  
+  /* Показываем подсказку при наведении на таб */
+  menu button:hover .tab-tooltip {
+	display: block;
+	opacity: 0.7;
+  }
+  
+  /* Позиционирование подсказки над табом */
+  menu button:hover .tab-tooltip {
+	bottom: 100%; 
+	/* left: 50%; */
+	margin-left: -60px; /* Смещение для центрирования подсказки, зависит от её ширины */
+  }
+
+  .note {
+	/* position: absolute;
+	top: 20px; /* Отступ сверху
+	right: -220px; Отступ справа, выходящий за пределы контейнера, с учетом ширины подсказки 200px + padding */
+	background-color: #fffa70; /* Цвет фона — желтый */
+	padding: 10px 15px;
+	width: 200px; /* Ширина подсказки */
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Тень вокруг блока */
+	border-radius: 5px; /* Скругление углов блока */
+	box-sizing: border-box;
+	font-size: 14px;
+	font-family: 'Courier New', Courier, monospace;
+	z-index: 100;
+  }
+  fieldset {
+	display: flex;
+  }
+
+  .google-login-btn {
+	background-color: #4285F4; /* Цвет фона Google */
+	color: white; /* Цвет текста */
+	padding: 10px 20px; /* Отступы вокруг текста */
+	border: none; /* Удаление границы */
+	border-radius: 5px; /* Скругление углов */
+	font-size: 16px; /* Размер шрифта */
+	text-decoration: none; /* Убираем подчеркивание текста */
+	display: inline-block; /* Элемент размещается на той же линии, что и следующий текст/элементы */
+	cursor: pointer; /* Изменение курсора при наведении */
+	transition: background-color 0.3s, transform 0.3s; /* Плавный переход цвета и трансформация при наведении */
+  }
+  
+  .google-login-btn:hover {
+	background-color: #357ae8; /* Цвет фона при наведении */
+	transform: scale(1.05); /* Небольшое увеличение кнопки для эффекта при наведении */
+  }
+
+  .gsi-material-button {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-webkit-appearance: none;
+	background-color: #131314;
+	background-image: none;
+	border: 1px solid #747775;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #e3e3e3;
+	cursor: pointer;
+	font-family: 'Roboto', arial, sans-serif;
+	font-size: 14px;
+	height: 40px;
+	letter-spacing: 0.25px;
+	outline: none;
+	overflow: hidden;
+	padding: 0 12px;
+	position: relative;
+	text-align: center;
+	-webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+	transition: background-color .218s, border-color .218s, box-shadow .218s;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: auto;
+	max-width: 400px;
+	min-width: min-content;
+	border-color: #8e918f;
+  }
+  
+  .gsi-material-button .gsi-material-button-icon {
+	height: 20px;
+	margin-right: 12px;
+	min-width: 20px;
+	width: 20px;
+  }
+  
+  .gsi-material-button .gsi-material-button-content-wrapper {
+	-webkit-align-items: center;
+	align-items: center;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	height: 100%;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+  }
+  
+  .gsi-material-button .gsi-material-button-contents {
+	-webkit-flex-grow: 0;
+	flex-grow: 0;
+	font-family: 'Roboto', arial, sans-serif;
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: top;
+  }
+  
+  .gsi-material-button .gsi-material-button-state {
+	-webkit-transition: opacity .218s;
+	transition: opacity .218s;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+  }
+  
+  .gsi-material-button:disabled {
+	cursor: default;
+	background-color: #13131461;
+	border-color: #8e918f1f;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-state {
+	background-color: #e3e3e31f;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-contents {
+	opacity: 38%;
+  }
+  
+  .gsi-material-button:disabled .gsi-material-button-icon {
+	opacity: 38%;
+  }
+  
+  .gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+  .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+	background-color: white;
+	opacity: 12%;
+  }
+  
+  .gsi-material-button:not(:disabled):hover {
+	-webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+	box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  }
+  
+  .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+	background-color: white;
+	opacity: 8%;
+  }
+  

@@ -1,0 +1,90 @@
+input, select, textarea {
+    width: 100%;
+  }
+  .input-file {
+  position: relative;
+  display: inline-block;
+  }
+  .input-file-text {
+      padding: 0 10px;
+      line-height: 40px;
+      text-align: left;
+      height: 40px;
+      display: block;
+      float: left;
+      box-sizing: border-box;
+      width: 200px;
+      border-radius: 6px 0px 0 6px;
+      border: 1px solid #ddd;
+  }
+  .input-file-btn {
+  position: relative;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      text-decoration: none;
+      font-size: 14px;
+      vertical-align: middle;
+      color: rgb(255 255 255);
+      text-align: center;
+      border-radius: 0 4px 4px 0;
+      background-color: #419152;
+      line-height: 22px;
+      height: 40px;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      border: none;
+      margin: 0;
+      transition: background-color 0.2s;
+  }
+  .input-file input[type=file] {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      display: block;
+      width: 0;
+      height: 0;
+  }
+  
+  /* Focus */
+  .input-file input[type=file]:focus + .input-file-btn {
+      box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+  
+  /* Hover/Active */
+  .input-file:hover .input-file-btn {
+      background-color: #59be6e;
+  }
+  .input-file:active .input-file-btn {
+      background-color: #2E703A;
+  }
+  
+  /* Disabled */
+  .input-file input[type=file]:disabled + .input-file-btn {
+      background-color: #eee;
+  }
+  .success {color: green;}
+  .error {color: red;}
+  #progress {
+    width: 100%;
+    background: lightgray;
+  }
+  
+  #progress div {
+    width: 0;
+    height: 20px;
+    background: lightblue;
+  }
+  
+  #modal {
+    position: fixed; 
+    z-index: 1;
+    padding-top: 15%;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: gray;
+    background-color: rgba(0,0,0,0.4); 
+  }

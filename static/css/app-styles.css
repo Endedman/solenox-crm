@@ -1,0 +1,35 @@
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+}
+.archive-contents {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.file-item {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.file-item:hover {
+    background-color: #f0f0f0;
+}

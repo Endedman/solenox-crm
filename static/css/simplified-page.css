@@ -1,0 +1,35 @@
+/* Верхняя панель окна, с кнопкой закрытия */
+.window-bar {
+    background-color: #000080;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-family: 'Tahoma', 'Arial';
+  }
+  
+  .close-btn {
+    float: right;
+    cursor: pointer;
+  }
+  
+  /* Содержимое окна */
+  .window-content {
+    background-color: #f7f7f7;
+    padding: 10px;
+    font-family: 'Tahoma', 'Arial';
+  }
+  
+  /* Заголовок внутри окна */
+  .window-title {
+    text-align: center;
+  }
+  
+  /* Стили для токена */
+  .token {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: #d4d4d4;
+    border: 1px solid #000;
+  }
