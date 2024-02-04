@@ -318,7 +318,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "admin/post_handlers.php";
                 <input type="text" id="filenamehuman" name="filenamehuman" required></textarea><br>
 
                 <label for="description">Description:</label><br>
-                <textarea id="description" name="description" required></textarea><br>
+                <textarea id="description" name="description"></textarea><br>
 
                 <label for="qualitymark">Quality Mark:</label><br>
                 <select id="qualitymark" name="qualitymark" required>
