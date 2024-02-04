@@ -1,6 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "classes/Database.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "classes/User.php";
+$envDir = '/var/www/html/jstore/';
+require_once $envDir . 'config.php';
+require_once JSTORE_DIR . "classes/Database.php";
+require_once JSTORE_DIR . "classes/User.php";
+require_once JSTORE_DIR . "classes/NetCat.php";
 
 $db = new Database();
 $user = new User($db);
@@ -28,4 +31,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
 } else {
     echo json_encode(['error' => 'Invalid request']);
 }
-?>

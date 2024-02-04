@@ -1,9 +1,9 @@
 <?php
-// api/getToken.php
-
-require_once $_SERVER['DOCUMENT_ROOT'] . 'classes/Database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . 'classes/User.php';
-
+$envDir = '/var/www/html/jstore/';
+require_once $envDir . 'config.php';
+require_once JSTORE_DIR . "classes/Database.php";
+require_once JSTORE_DIR . "classes/User.php";
+require_once JSTORE_DIR . "classes/NetCat.php";
 // Retrieve the submitted username and password
 $username = $_GET['username'] ?? '';
 $password = $_GET['password'] ?? '';
@@ -24,4 +24,3 @@ if ($userInfo) {
     // Invalid username or password
     echo json_encode(['success' => false, 'message' => 'Invalid credentials']);
 }
-?>

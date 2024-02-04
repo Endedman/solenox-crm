@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteBase /mobile/
+
+RewriteRule ^app/([^/]+)/?$ app.php?id=$1 [L]
+RewriteRule ^category/([^/]+)/?$ category.php?id=$1 [L]
+RewriteRule ^subcategory/([^/]+)/?$ subcategory.php?id=$1 [L]
+RewriteRule ^good/([^/]+)/?$ good.php?id=$1 [L]
+
+RewriteRule ^login/?$ login.php [L]
+RewriteRule ^register/?$ register.php [L]
+RewriteRule ^profile/?$ profile.php [L]
+RewriteRule ^logout/?$ logout.php [L]
+RewriteRule ^top/?$ top.php [L]
+RewriteRule ^listings/?$ listings.php [L]
+

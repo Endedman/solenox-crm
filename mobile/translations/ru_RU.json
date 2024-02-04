@@ -1,0 +1,28 @@
+{
+    "login": "Вход",
+    "register": "Регистрация",
+    "profile": "Профиль",
+    "categories": "Категории",
+    "username_or_email": "Электронная почта или логин",
+    "password": "Пароль",
+    "your_profile": "Ваш профиль",
+    "username": "Логин",
+    "email": "Электронная почта",
+    "logout": "Выйти",
+    "download": "Загрузить",
+    "confirm_password": "Подтвердите пароль",
+    "apps_in_this_category": "Файлы в этой категории",
+    "file_details": "Детали файла",
+    "file_size": "Размер файла",
+    "updated_date": "Обновлено/загружено",
+    "description": "Описание",
+    "screenshots": "Скриншоты",
+    "top": "ТОП-10",
+    "subcategories": "Субкатегории",
+    "listings": "Аукцион",    
+    "goods": "Товары",
+    "place_to_wishlist": "Кинуть в вишлист",
+    "buy": "Купить",
+    "tokens": "токен(ов)"
+
+}

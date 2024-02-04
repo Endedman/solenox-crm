@@ -1,9 +1,12 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"] . 'config.php';
+
 /**
  * Class Rcon
  * Represents a Remote Console (RCON) connection to a game server.
  */
-class Rcon {
+class Rcon
+{
 
   private $host;
   private $port;
@@ -31,7 +34,8 @@ class Rcon {
    * @param string $password The RCON password.
    * @param int $timeout Connection timeout.
    */
-  public function __construct($host, $port, $password, $timeout){
+  public function __construct($host, $port, $password, $timeout)
+  {
     $this->host = $host;
     $this->port = $port;
     $this->password = $password;
@@ -43,7 +47,8 @@ class Rcon {
    *
    * @return string The last response from the server.
    */
-  public function get_response(){
+  public function get_response()
+  {
     return $this->last_response;
   }
 
@@ -52,11 +57,11 @@ class Rcon {
    *
    * @return bool True if connection is established, false otherwise.
    */
-  public function connect(){
+  public function connect()
+  {
     $this->socket = fsockopen($this->host, $this->port, $errno, $errstr, $this->timeout);
 
-    if (!$this->socket)
-    {
+    if (!$this->socket) {
       $this->last_response = $errstr;
       return false;
     }
@@ -77,9 +82,9 @@ class Rcon {
   /**
    * Closes the connection to the server.
    */
-  public function disconnect(){
-    if ($this->socket)
-    {
+  public function disconnect()
+  {
+    if ($this->socket) {
       fclose($this->socket);
     }
   }
@@ -89,7 +94,8 @@ class Rcon {
    *
    * @return bool True if connected, false otherwise.
    */
-  public function is_connected(){
+  public function is_connected()
+  {
     return $this->authorized;
   }
 
@@ -101,7 +107,7 @@ class Rcon {
    */
   public function send_command($command)
   {
-    if (!$this->is_connected()){
+    if (!$this->is_connected()) {
       return false;
     }
 
@@ -110,10 +116,8 @@ class Rcon {
 
     // get response.
     $response_packet = $this->read_packet();
-    if ($response_packet['id'] == Rcon::PACKET_COMMAND)
-    {
-      if ($response_packet['type'] == Rcon::SERVERDATA_RESPONSE_VALUE)
-      {
+    if ($response_packet['id'] == Rcon::PACKET_COMMAND) {
+      if ($response_packet['type'] == Rcon::SERVERDATA_RESPONSE_VALUE) {
         $this->last_response = $response_packet['body'];
         return $response_packet['body'];
       }
@@ -127,14 +131,13 @@ class Rcon {
    *
    * @return bool True if authorized, false otherwise.
    */
-  private function authorize(){
+  private function authorize()
+  {
     $this->write_packet(Rcon::PACKET_AUTHORIZE, Rcon::SERVERDATA_AUTH, $this->password);
     $response_packet = $this->read_packet();
 
-    if ($response_packet['type'] == Rcon::SERVERDATA_AUTH_RESPONSE)
-    {
-      if ($response_packet['id'] == Rcon::PACKET_AUTHORIZE)
-      {
+    if ($response_packet['type'] == Rcon::SERVERDATA_AUTH_RESPONSE) {
+      if ($response_packet['id'] == Rcon::PACKET_AUTHORIZE) {
         $this->authorized = true;
         return true;
       }

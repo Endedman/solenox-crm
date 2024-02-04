@@ -1,11 +1,13 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "classes/Database.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "classes/User.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "classes/Chat.php";
+$envDir = '/var/www/html/jstore/';
+require_once $envDir . 'config.php';
+require_once JSTORE_DIR . "classes/Database.php";
+require_once JSTORE_DIR . "classes/User.php";
+require_once JSTORE_DIR . "classes/NetCat.php";
 
 $db = new Database();
-$chat= new Chat($db);
-$user= new User($db);
+$chat = new Chat($db);
+$user = new User($db);
 
 $apiToken = $_SERVER["HTTP_X_API_TOKEN"]; // Retrieve the token from the request headers
 if (strpos($_SERVER['SCRIPT_FILENAME'], 'api_router.php') === false) {

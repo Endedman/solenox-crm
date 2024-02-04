@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Redirect requests for "get{Action}" to the API router with the appropriate action parameter.
+RewriteRule ^get([A-Za-z]+)$ api_router.php?action=get$1 [QSA,L]
+#For dedicated-less API domains
+#RewriteRule ^get([A-Za-z]+)$ api/api_router.php?action=get$1 [QSA,L]
+
+# Add more rewrite rules for other API actions as necessary.

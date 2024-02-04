@@ -1,10 +1,22 @@
 <?php
 
 /**
- * Class News
- * Represents a news management system.
+ * Handles the creation, retrieval, and management of news posts.
+ *
+ * This class provides functionalities to add new news posts to the database,
+ * retrieve all news posts or a specific post by its ID, and manage these posts.
+ * It integrates with a database to store and query news post data.
+ *
+ * PHP version 7.4
+ *
+ * @category   ContentManagement
+ * @package    solenox=crm
+ * @subpackage News
+ * @author     Vasiliy Kravchuk <hellendedman@internet.ru>
+ * @license    http://www.opensource.org/licenses/mit-license.php MIT License
+ * @link       http://j2me.xyz
+ * @since      File available since RC 1.1.18
  */
-
 class News
 {
     private $db;
@@ -14,7 +26,7 @@ class News
      *
      * @param Database $db The database connection instance.
      */
-    
+
     public function __construct($db)
     {
         $this->db = $db;
@@ -27,8 +39,8 @@ class News
      * @param array  $params An array of binding parameters for the SQL query completion.
      * @return array|null Returns an array of rows if the query is successful, or `null` if an error occurs.
      */
-    
-    private function executeQuery($query, $params = [])
+
+    private function executeQuery($query, $params = []): mixed
     {
         $conn = $this->db->getConnection();
         $stmt = $conn->prepare($query);
@@ -38,22 +50,27 @@ class News
                 $types = str_repeat('s', count($params));
                 $stmt->bind_param($types, ...$params);
             }
-            
+
             $stmt->execute();
             $result = $stmt->get_result();
-            $data = [];
-            
-            while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
+
+            if ($result === false) {
+                // Запрос не возвращал результатов (например, INSERT, UPDATE или DELETE)
+                return $stmt->affected_rows > 0;
+            } else {
+                // Запрос возвращал результаты (например, SELECT)
+                $data = [];
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+                return $data;
             }
-            
-            return $data;
         } else {
-            return [];
+            return false;
         }
     }
 
-     /**
+    /**
      * Creates a new news post.
      *
      * @param string $title The title of the news post.
@@ -61,13 +78,25 @@ class News
      * @param string $author The author of the news post (usually you).
      * @return bool|array Returns `true` if the news post was successfully created, otherwise an error message or an empty array.
      */
-    
+
     public function createNews($title, $content, $author)
     {
-        $conn = $this->db->getConnection();
-        $stmt = $conn->prepare("INSERT INTO news (title, text, date, author_id) VALUES (?, ?, NOW(), ?)");
-        $stmt->bind_param("ssi", $title, $content, $author);
-        return $stmt->execute();
+        // Проверка на дублирование новости
+        $checkQuery = "SELECT * FROM news WHERE text = ?";
+        $checkParams = [$content];
+        $existingNews = $this->executeQuery($checkQuery, $checkParams);
+
+        if (!empty($existingNews)) {
+            // Возвращаем ошибку, если новость уже существует
+            return false;
+            ;
+        }
+
+        // Если новости с таким текстом не существует, продолжаем вставку
+        $query = "INSERT INTO news (title, text, date, author_id) VALUES (?, ?, NOW(), ?)";
+        $params = [$title, $content, $author];
+        return $this->executeQuery($query, $params);
+        // error_log(print_r($existingNews, true)); // Добавьте эту строку для записи результатов запроса в лог
     }
 
     /**
@@ -75,7 +104,7 @@ class News
      *
      * @return array An array of news posts, each containing details about the post and its author.
      */
-    
+
     public function getAllNews()
     {
         $query = "SELECT n.*, u.username FROM news n INNER JOIN users u ON n.author_id = u.id ORDER BY n.id DESC";
@@ -87,13 +116,37 @@ class News
      *
      * @return array An array of news posts, each containing details about the post.
      */
-    
+
     public function getAllNewsApi()
     {
-        $query = "SELECT * FROM news";
-        return $this->executeQuery($query);
+        return $this->executeQuery("SELECT * FROM news");
     }
 
-    // Другие методы класса...
+    /**
+     * Fetches a single news post by ID.
+     *
+     * @param int $newsId The ID of the news post.
+     * @return array|null Associative array containing the news post data or null if not found.
+     */
+    public function getNewsById($newsId)
+    {
+        $query = "SELECT n.*, u.username FROM news n INNER JOIN users u ON n.author_id = u.id WHERE n.id = ?";
+        $params = [$newsId];
+        $stmt = $this->db->getConnection()->prepare($query);
+
+        if (!$stmt) {
+            return null;
+        }
+
+        $stmt->bind_param("i", ...$params); // 'i' denotes the parameter type 'integer'
+
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $stmt->close();
+            return $result->num_rows ? $result->fetch_assoc() : null;
+        } else {
+            $stmt->close();
+            return null;
+        }
+    }
 }
-?>

@@ -1,7 +1,23 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"] . 'config.php';
+
 /**
- * Class Token
- * Provides methods for generating secure tokens.
+ * Implements secure token generation functionality.
+ *
+ * This class provides methods to generate secure, random tokens which can be
+ * used for various purposes, such as CSRF protection or unique identifiers
+ * within the application. It ensures the tokens are cryptographically secure by
+ * utilizing PHP's random_bytes function.
+ *
+ * PHP version 7.4
+ *
+ * @category   CMS
+ * @package    solenox-crm
+ * @subpackage Token
+ * @author     Vasiliy Kravchuk <hellendedman@internet.ru>
+ * @license    http://www.opensource.org/licenses/mit-license.php MIT License
+ * @link       http://j2me.xyz
+ * @since      File available since RC 1.1.18
  */
 class Token
 {
@@ -17,4 +33,3 @@ class Token
         return bin2hex(random_bytes($length));
     }
 }
-?>
