@@ -1,11 +1,11 @@
-# Solenox.SRVManager
+# JStore.SRVManager
 
 > Use assets for your webserver in [WEBSERVER-CONFIG] folder
 > 
-> *"We just wanted to make the life of the owners of clean minecraft servers a little easier"* - Solenox development department
+> *"We just wanted to make the life of the owners of clean minecraft servers a little easier"* - JStore development department
 
-## What is a Solenox server manager?
-Solenox.SRVManager can be used in small communities for contacting between server *owners* and *users*. Using SRVManager, you can implement:
+## What is a JStore server manager?
+JStore.SRVManager can be used in small communities for contacting between server *owners* and *users*. Using SRVManager, you can implement:
  - [x] Users' registration
  - [x] News feed
  - [x] File management system (raw implementation)
