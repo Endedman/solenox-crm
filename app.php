@@ -33,6 +33,7 @@
                         <div class="cell">
                             <p><strong>
                                     <?php echo $app['filename_humanreadable']; ?>
+                            </strong>
                             </p>
                             <p><strong>Author:</strong>
                                 <?php echo $app['author']; ?>
